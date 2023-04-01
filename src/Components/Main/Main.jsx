@@ -1,9 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Main() {
+  const [renderUsd, setRenderUsd] = useState(0);
+  const [renderEro, setRenderEro] = useState(0);
+  const [rate, setRate] = useState(0);
+  //get rate while the firs render
+  useEffect(() => {
+    fetch("https://api.exchangerate-api.com/v4/latest/USD")
+      .then((response) => response.json())
+      .then((data) => {
+        setRenderUsd(data.rates.UAH.toFixed(2));
+      });
+
+    fetch("https://api.exchangerate-api.com/v4/latest/EUR")
+      .then((response) => response.json())
+      .then((data) => {
+        setRenderEro(data.rates.UAH.toFixed(2));
+      });
+  }, []);
+
+  useEffect(() => {
+    const renderRate = +(renderUsd / renderEro).toFixed(2);
+    setRate(renderRate);
+  }, [renderUsd, renderEro]);
   const [currency1, setCurrency1] = useState("USD");
   const [currency2, setCurrency2] = useState("EUR");
-  const [rate, setRate] = useState(0.918);
   const [amount1, setAmount1] = useState(0);
   const [amount2, setAmount2] = useState(0);
   // change data currency 1  & call the function
@@ -37,13 +58,13 @@ export default function Main() {
     const newAmount1 = event.target.value;
     setAmount1(newAmount1);
     const newAmount2 = newAmount1 * rate;
-    setAmount2(newAmount2);
+    setAmount2(newAmount2.toFixed(2));
   };
   const handleAmount2Change = (event) => {
     const newAmount2 = event.target.value;
     setAmount2(newAmount2);
     const newAmount1 = newAmount2 / rate;
-    setAmount1(newAmount1);
+    setAmount1(newAmount1.toFixed(2));
   };
   // get amount money after exchange
   const calculateAmounts = (amount) => {
