@@ -75,6 +75,7 @@ export default function Main() {
     <div className=" flex flex-col items-center justify-center w-screen h-screen md:bg-my-image bg-my-imageMobile bg-no-repeat bg-cover">
       <div className=" md:flex items-center justify-center my-8">
         <select
+        onClick={()=> setAmount2(0)}
           className="px-3 py-2 border rounded"
           value={currency1}
           onChange={handleCurrency1Change}
@@ -99,6 +100,7 @@ export default function Main() {
         />
         <div className="mx-4 w-10 h-10 flex items-center justify-center rotate-90 md:rotate-0	 text-white">&#8596;</div>
         <select
+        onClick={()=> setAmount1(0)}
           className="px-3 py-2 border rounded"
           value={currency2}
           onChange={handleCurrency2Change}
