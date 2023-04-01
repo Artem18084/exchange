@@ -72,7 +72,7 @@ export default function Main() {
   };
 
   return (
-    <div className=" relative flex flex-col items-center justify-center w-screen h-screen md:bg-my-image bg-my-imageMobile bg-no-repeat bg-cover">
+    <div className=" flex flex-col items-center justify-center w-screen h-screen md:bg-my-image bg-my-imageMobile bg-no-repeat bg-cover">
       <div className=" md:flex items-center justify-center my-8">
         <select
           className="px-3 py-2 border rounded"
