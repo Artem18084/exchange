@@ -72,8 +72,8 @@ export default function Main() {
   };
 
   return (
-    <div className=" relative flex flex-col items-center justify-center w-screen h-screen bg-my-image bg-no-repeat bg-cover">
-      <div className="flex items-center justify-center my-8">
+    <div className=" relative flex flex-col items-center justify-center w-screen h-screen md:bg-my-image bg-my-imageMobile bg-no-repeat bg-cover">
+      <div className=" md:flex items-center justify-center my-8">
         <select
           className="px-3 py-2 border rounded"
           value={currency1}
@@ -97,7 +97,7 @@ export default function Main() {
             +event.target.value === 0 ? (event.target.value = 0) : false
           }
         />
-        <div className="mx-4 text-white">&#8596;</div>
+        <div className="mx-4 w-10 h-10 flex items-center justify-center rotate-90 md:rotate-0	 text-white">&#8596;</div>
         <select
           className="px-3 py-2 border rounded"
           value={currency2}
@@ -109,7 +109,7 @@ export default function Main() {
         </select>
         <input
           type="number"
-          className="px-3 py-2 border rounded mx-4"
+          className="px-3 py-2 border rounded md:mr-4 ml-4"
           value={amount2}
           onChange={handleAmount2Change}
           // Check the value: if the value is 0, the field should be empty. Otherwise, the input value should not be changed.

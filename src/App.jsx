@@ -3,7 +3,7 @@ import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 
 function App() {
-  return <div className=" ">
+  return <div className="w-screen h-screen">
     <Header/>
     <Main/>
   </div>;
