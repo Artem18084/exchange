@@ -20,7 +20,7 @@ function Header() {
   }, [now]);
 
   return (
-    <div className="flex justify-center gap-20 p-2 bg-[#1B1B1B] text-white absolute top-0 right-0 w-screen z-10">
+    <div className="flex justify-center gap-[5vw] p-2 bg-[#1B1B1B] text-white absolute top-0 right-0 w-screen z-10">
       <div>1 USD = {usdToUahRate} UAH</div>
       <div>1 EUR = {eurToUahRate} UAH</div>
     </div>
